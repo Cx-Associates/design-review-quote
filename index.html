@@ -338,13 +338,13 @@ async function submitToHubSpot(){
     {name:'firstname',value:firstname},
     {name:'lastname',value:lastname},
     {name:'email',value:email},
-    {name:'design_review_building_type',value:state.btype||''},
+    {name:'design_review__building_type',value:state.btype||''},
     {name:'design_review_stage',value:state.stage||''},
     {name:'design_review_construction_type',value:state.ctype||''},
     {name:'design_review_budget',value:state.budget||''},
-    {name:'design_review_sf',value:state.sf||''},
-    {name:'design_review_complexity',value:state.complexity||''},
-    {name:'design_review_expedited',value:state.expedited||''},
+    {name:'project_size__sf_',value:state.sf||''},
+    {name:'building_complexity',value:state.complexity||''},
+    {name:'expedited_service',value:state.expedited||''},
     {name:'design_review_estimated_fee',value:fmt(total)}
   ];
   try{
