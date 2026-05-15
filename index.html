@@ -8,8 +8,6 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:#f2f0eb;color:#1a1a1a;min-height:100vh;font-size:15px}
-
-/* ── Header ── */
 header{background:#2b2b2b;padding:0;border-bottom:3px solid #e8601c}
 .header-top{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:70px}
 .logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -17,59 +15,47 @@ header{background:#2b2b2b;padding:0;border-bottom:3px solid #e8601c}
 .header-top nav{display:flex;gap:1.5rem}
 .header-top nav a{color:#ccc;font-size:13px;text-decoration:none;letter-spacing:0.02em}
 .header-top nav a:hover{color:#e8601c}
-
-/* ── Hero ── */
-.hero{background:#2b2b2b;padding:3rem 2rem 3rem;color:#fff;text-align:center}
+.hero{background:#2b2b2b;padding:3rem 2rem;color:#fff;text-align:center}
 .hero-eyebrow{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#e8601c;font-weight:600;margin-bottom:12px}
-.hero h1{font-size:32px;font-weight:400;line-height:1.25;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto;font-family:'DM Serif Display',serif;letter-spacing:-0.01em}
+.hero h1{font-family:'DM Serif Display',serif;font-size:32px;font-weight:400;line-height:1.25;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
 .hero p{font-size:15px;color:#bbb;max-width:460px;margin:0 auto;line-height:1.7}
-
-/* ── Content ── */
 .container{max-width:700px;margin:0 auto;padding:2rem 1.5rem 4rem}
-
-/* ── Cards ── */
 .card{background:#fff;border:1px solid #dedad4;border-radius:4px;padding:1.75rem;margin-bottom:1rem}
 .step-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#e8601c;margin-bottom:8px}
 .question{font-size:16px;font-weight:400;color:#1a1a1a;margin-bottom:16px;line-height:1.4}
-
-/* ── Pills ── */
 .pill-group{display:flex;flex-wrap:wrap;gap:8px}
 .pill{padding:8px 18px;border:1px solid #d0cec8;border-radius:999px;background:#fff;color:#444;font-size:14px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;line-height:1}
 .pill:hover{border-color:#e8601c;color:#c44e10}
 .pill.active{border-color:#e8601c;background:#fef1eb;color:#c44e10;font-weight:500}
-
-/* ── Building cards ── */
 .building-group{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.bcard{border:1px solid #d0cec8;border-radius:4px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
+.bcard{border:1px solid #d0cec8;border-radius:12px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
 .bcard:hover{border-color:#e8601c}
-.bcard.active{border:2px solid #e8601c;background:#fef1eb}
+.bcard.active{border:2px solid #e8601c;background:#fef1eb;border-radius:12px}
 .bcard svg{width:72px;height:60px;display:block;margin:0 auto 10px;color:#2b2b2b}
 .bcard.active svg{color:#c44e10}
 .blabel{font-size:13px;font-weight:600;color:#1a1a1a}
 .bsub{font-size:12px;color:#999;margin-top:3px}
-
-/* ── Price ── */
 .price-section{background:#2b2b2b;border-radius:4px;padding:2rem;margin-top:1.5rem;color:#fff}
 .price-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .price-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#e8601c;margin-bottom:8px}
-.price-amt{font-size:40px;font-weight:300;color:#fff;line-height:1;font-family:'DM Serif Display',serif;letter-spacing:-0.02em}
+.price-amt{font-family:'DM Serif Display',serif;font-size:40px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em}
 .price-note{font-size:12px;color:#888;margin-top:8px;line-height:1.6}
 .price-empty{font-size:28px;font-weight:300;color:#555}
 .breakdown{font-size:13px;color:#666;margin-top:12px;line-height:2.2}
 .breakdown span{color:#aaa}
 .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:2px;background:#fef1eb;color:#c44e10;margin-left:8px;font-weight:600;vertical-align:middle}
-
-/* ── CTA ── */
-.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#e8601c;color:#fff;border:none;border-radius:2px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.15s;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
+.contact-card{display:none;background:#fff;border:1px solid #dedad4;border-radius:4px;padding:1.75rem;margin-top:1rem}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.field-single{margin-bottom:12px}
+label.field-label{font-size:12px;color:#888;display:block;margin-bottom:4px}
+.text-input{width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a}
+.text-input:focus{outline:none;border-color:#e8601c}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#e8601c;color:#fff;border:none;border-radius:2px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.15s;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
 .cta:hover{background:#c44e10}
-.cta-note{font-size:12px;color:#666;margin-top:10px}
-.cta-wrap{text-align:right}
-
-/* ── Footer ── */
+.success-card{display:none;background:#2b2b2b;border-radius:4px;padding:2rem;margin-top:1rem;text-align:center;color:#fff}
 footer{background:#2b2b2b;color:#999;padding:2rem;font-size:13px;border-top:3px solid #e8601c}
 .footer-inner{max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 footer a{color:#e8601c;text-decoration:none}
-footer a:hover{text-decoration:underline}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-links a{color:#aaa;font-size:12px;text-decoration:none}
 .footer-links a:hover{color:#e8601c}
@@ -80,13 +66,9 @@ footer a:hover{text-decoration:underline}
 <header>
   <div class="header-top">
     <a class="logo-wrap" href="https://www.cx-associates.com">
-      <!-- CxA logo rendered as SVG to match the orange + white wordmark -->
       <svg class="logo-svg" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- C: bold rounded letter with cutout feel -->
         <text x="0" y="36" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="900" fill="#f0a500">C</text>
-        <!-- x: bold orange, tucked close -->
         <text x="26" y="36" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="900" fill="#f0a500">x</text>
-        <!-- associates: gray, lighter weight -->
         <text x="58" y="34" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="400" fill="#888888">associates</text>
       </svg>
     </a>
@@ -110,11 +92,11 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 1</div>
     <div class="question">What type of building is this project?</div>
     <div class="pill-group" id="btype">
-      <button class="pill" data-val="commercial">Commercial</button>
-      <button class="pill" data-val="residential">Residential</button>
-      <button class="pill" data-val="industrial">Industrial</button>
-      <button class="pill" data-val="institutional">Institutional</button>
-      <button class="pill" data-val="mixed">Mixed use</button>
+      <button class="pill" data-val="Commercial">Commercial</button>
+      <button class="pill" data-val="Residential">Residential</button>
+      <button class="pill" data-val="Industrial">Industrial</button>
+      <button class="pill" data-val="Institutional">Institutional</button>
+      <button class="pill" data-val="Mixed use">Mixed use</button>
     </div>
   </div>
 
@@ -122,11 +104,11 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 2</div>
     <div class="question">What design stage are you at?</div>
     <div class="pill-group" id="stage">
-      <button class="pill" data-val="sd">Schematic design</button>
-      <button class="pill" data-val="dd50">50% design development</button>
-      <button class="pill" data-val="dd100">100% design development</button>
-      <button class="pill" data-val="cd50">50% construction docs</button>
-      <button class="pill" data-val="cd100">100% construction docs</button>
+      <button class="pill" data-val="Schematic Design">Schematic design</button>
+      <button class="pill" data-val="50% Design Development">50% design development</button>
+      <button class="pill" data-val="100% Design Development">100% design development</button>
+      <button class="pill" data-val="50% Construction Docs">50% construction docs</button>
+      <button class="pill" data-val="100% Construction Docs">100% construction docs</button>
     </div>
   </div>
 
@@ -134,9 +116,9 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 3</div>
     <div class="question">New construction or renovation?</div>
     <div class="pill-group" id="ctype">
-      <button class="pill" data-val="new">New construction</button>
-      <button class="pill" data-val="reno">Renovation</button>
-      <button class="pill" data-val="addition">Addition</button>
+      <button class="pill" data-val="New Construction">New construction</button>
+      <button class="pill" data-val="Renovation">Renovation</button>
+      <button class="pill" data-val="Addition">Addition</button>
     </div>
   </div>
 
@@ -144,11 +126,11 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 4</div>
     <div class="question">Approximate total project budget?</div>
     <div class="pill-group" id="budget">
-      <button class="pill" data-val="u25">Under $25k</button>
-      <button class="pill" data-val="25-50">$25k – $49k</button>
-      <button class="pill" data-val="50-100">$50k – $99k</button>
-      <button class="pill" data-val="100-500">$100k – $499k</button>
-      <button class="pill" data-val="500k+">$500k+</button>
+      <button class="pill" data-val="Under $25k">Under $25k</button>
+      <button class="pill" data-val="$25k - $49k">$25k – $49k</button>
+      <button class="pill" data-val="$50k - $99k">$50k – $99k</button>
+      <button class="pill" data-val="$100k - $499k">$100k – $499k</button>
+      <button class="pill" data-val="$500k+">$500k+</button>
     </div>
   </div>
 
@@ -156,10 +138,10 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 5</div>
     <div class="question">Approximate project size?</div>
     <div class="pill-group" id="sf">
-      <button class="pill" data-val="u10">Under 10,000 sf</button>
-      <button class="pill" data-val="10-25">10,000 – 24,999 sf</button>
-      <button class="pill" data-val="25-50">25,000 – 49,999 sf</button>
-      <button class="pill" data-val="50k+">50,000+ sf</button>
+      <button class="pill" data-val="Under 10000 sf">Under 10,000 sf</button>
+      <button class="pill" data-val="10000 - 24999 sf">10,000 – 24,999 sf</button>
+      <button class="pill" data-val="25000 - 49999 sf">25,000 – 49,999 sf</button>
+      <button class="pill" data-val="50000+ sf">50,000+ sf</button>
     </div>
   </div>
 
@@ -167,7 +149,7 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 6</div>
     <div class="question">How would you describe the building's complexity?</div>
     <div class="building-group" id="complexity">
-      <button class="bcard" data-val="simple">
+      <button class="bcard" data-val="Simple">
         <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="10,38 50,10 90,38"/>
           <rect x="18" y="38" width="64" height="32"/>
@@ -177,7 +159,7 @@ footer a:hover{text-decoration:underline}
         <div class="blabel">Simple</div>
         <div class="bsub">Warehouse, box retail</div>
       </button>
-      <button class="bcard" data-val="moderate">
+      <button class="bcard" data-val="Moderate">
         <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="8,40 50,12 92,40"/>
           <rect x="14" y="40" width="72" height="30"/>
@@ -190,7 +172,7 @@ footer a:hover{text-decoration:underline}
         <div class="blabel">Moderate</div>
         <div class="bsub">Office, multi-family</div>
       </button>
-      <button class="bcard" data-val="complex">
+      <button class="bcard" data-val="Very Complex">
         <svg viewBox="0 0 110 80" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="8" y="30" width="30" height="40"/>
           <polygon points="8,30 23,12 38,30"/>
@@ -216,12 +198,12 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 7</div>
     <div class="question">What are your top concerns? <span style="font-size:13px;font-weight:400;color:#aaa">(select all that apply)</span></div>
     <div class="pill-group" id="concerns">
-      <button class="pill" data-val="Energy cost" onclick="toggleConcern(this)">Energy cost</button>
-      <button class="pill" data-val="Carbon footprint" onclick="toggleConcern(this)">Carbon footprint</button>
-      <button class="pill" data-val="First cost" onclick="toggleConcern(this)">First cost</button>
-      <button class="pill" data-val="Reducing construction change orders" onclick="toggleConcern(this)">Reducing change orders</button>
-      <button class="pill" data-val="Thermal comfort" onclick="toggleConcern(this)">Thermal comfort</button>
-      <button class="pill" data-val="Site security" onclick="toggleConcern(this)">Site security</button>
+      <button class="pill" data-val="Energy cost">Energy cost</button>
+      <button class="pill" data-val="Carbon footprint">Carbon footprint</button>
+      <button class="pill" data-val="First cost">First cost</button>
+      <button class="pill" data-val="Reducing construction change orders">Reducing change orders</button>
+      <button class="pill" data-val="Thermal comfort">Thermal comfort</button>
+      <button class="pill" data-val="Site security">Site security</button>
     </div>
   </div>
 
@@ -229,8 +211,8 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 8</div>
     <div class="question">Do you need expedited service? <span class="tag">+$1,000</span></div>
     <div class="pill-group" id="expedited">
-      <button class="pill" data-val="no">Standard turnaround</button>
-      <button class="pill" data-val="yes">Yes, expedited</button>
+      <button class="pill" data-val="No">Standard turnaround</button>
+      <button class="pill" data-val="Yes">Yes, expedited</button>
     </div>
   </div>
 
@@ -245,42 +227,31 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
-  <div id="contact-form" style="display:none;background:#fff;border:1px solid #dedad4;border-radius:4px;padding:1.75rem;margin-top:1rem">
+  <div class="contact-card" id="contact-form">
     <div class="step-label">Almost there</div>
     <div class="question" style="margin-bottom:16px">Where should we send your quote summary?</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+    <div class="field-row">
       <div>
-        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">First name</label>
-        <input type="text" id="hs-firstname" placeholder="Jane" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
+        <label class="field-label">First name</label>
+        <input type="text" id="hs-firstname" placeholder="Jane" class="text-input">
       </div>
       <div>
-        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Last name</label>
-        <input type="text" id="hs-lastname" placeholder="Smith" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
-      </div>
-    </div>
-    <div style="margin-bottom:12px">
-      <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Work email</label>
-      <input type="email" id="hs-email" placeholder="jane@yourfirm.com" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-      <div>
-        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Phone number</label>
-        <input type="tel" id="hs-phone" placeholder="(802) 555-0100" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
-      </div>
-      <div>
-        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Company name</label>
-        <input type="text" id="hs-company" placeholder="Your firm" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
+        <label class="field-label">Last name</label>
+        <input type="text" id="hs-lastname" placeholder="Smith" class="text-input">
       </div>
     </div>
-    <div style="margin-bottom:20px">
-      <label style="font-size:12px;color:#888;display:block;margin-bottom:8px">What are your top concerns? <span style="color:#bbb">(select all that apply)</span></label>
-      <div class="pill-group" id="concerns">
-        <button class="pill" data-val="Energy cost" onclick="toggleConcern(this)">Energy cost</button>
-        <button class="pill" data-val="Carbon footprint" onclick="toggleConcern(this)">Carbon footprint</button>
-        <button class="pill" data-val="First cost" onclick="toggleConcern(this)">First cost</button>
-        <button class="pill" data-val="Reducing construction change orders" onclick="toggleConcern(this)">Reducing change orders</button>
-        <button class="pill" data-val="Thermal comfort" onclick="toggleConcern(this)">Thermal comfort</button>
-        <button class="pill" data-val="Site security" onclick="toggleConcern(this)">Site security</button>
+    <div class="field-single">
+      <label class="field-label">Work email</label>
+      <input type="email" id="hs-email" placeholder="jane@yourfirm.com" class="text-input">
+    </div>
+    <div class="field-row" style="margin-bottom:20px">
+      <div>
+        <label class="field-label">Phone number</label>
+        <input type="tel" id="hs-phone" placeholder="(802) 555-0100" class="text-input">
+      </div>
+      <div>
+        <label class="field-label">Company name</label>
+        <input type="text" id="hs-company" placeholder="Your firm" class="text-input">
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
@@ -290,7 +261,7 @@ footer a:hover{text-decoration:underline}
     <div style="font-size:12px;color:#aaa;margin-top:10px">We'll follow up within one business day.</div>
   </div>
 
-  <div id="success-msg" style="display:none;background:#2b2b2b;border-radius:4px;padding:2rem;margin-top:1rem;text-align:center;color:#fff">
+  <div class="success-card" id="success-msg">
     <div style="font-size:22px;font-family:'DM Serif Display',serif;margin-bottom:8px">Thanks — we'll be in touch!</div>
     <div style="font-size:14px;color:#aaa">A member of our team will follow up within one business day to confirm your scope and next steps.</div>
   </div>
@@ -316,10 +287,11 @@ footer a:hover{text-decoration:underline}
 </footer>
 
 <script>
-const sfPrices={u10:850,'10-25':1100,'25-50':1500,'50k+':2500};
-const complexPrices={simple:0,moderate:250,complex:1000};
-const expPrices={yes:1000,no:0};
+const sfPrices={'Under 10000 sf':850,'10000 - 24999 sf':1100,'25000 - 49999 sf':1500,'50000+ sf':2500};
+const complexPrices={'Simple':0,'Moderate':250,'Very Complex':1000};
+const expPrices={'Yes':1000,'No':0};
 const state={btype:null,stage:null,ctype:null,budget:null,sf:null,complexity:null,expedited:null};
+const concerns=[];
 
 function fmt(n){return '$'+n.toLocaleString('en-US');}
 
@@ -334,6 +306,17 @@ function initGroup(id,key){
   });
 }
 
+function toggleConcern(btn){
+  const val=btn.dataset.val;
+  const idx=concerns.indexOf(val);
+  if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
+  else{concerns.push(val);btn.classList.add('active');}
+}
+
+document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>{
+  btn.addEventListener('click',()=>toggleConcern(btn));
+});
+
 ['btype','stage','ctype','budget','sf','complexity','expedited'].forEach(id=>initGroup(id,id));
 
 function updatePrice(){
@@ -343,7 +326,7 @@ function updatePrice(){
   const expAmt=expPrices[state.expedited];
   const total=sfAmt+compAmt+expAmt;
   const disp=document.getElementById('price-display');
-  disp.className='price-amt price-section';
+  disp.className='price-amt';
   disp.textContent=fmt(total);
   document.getElementById('price-note').textContent='Estimate based on your selections — final scope confirmed at kickoff.';
   let lines=['<span>Base (size):</span> '+fmt(sfAmt)];
@@ -352,14 +335,6 @@ function updatePrice(){
   document.getElementById('breakdown').innerHTML=lines.join('<br>');
   if(Object.values(state).every(v=>v!==null))
     document.getElementById('contact-form').style.display='block';
-}
-
-const concerns=[];
-function toggleConcern(btn){
-  const val=btn.dataset.val;
-  const idx=concerns.indexOf(val);
-  if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
-  else{concerns.push(val);btn.classList.add('active');}
 }
 
 async function submitToHubSpot(){
@@ -378,31 +353,24 @@ async function submitToHubSpot(){
   const compAmt=complexPrices[state.complexity];
   const expAmt=expPrices[state.expedited];
   const total=sfAmt+compAmt+expAmt;
-  const btypeMap={commercial:'Commercial',residential:'Residential',industrial:'Industrial',institutional:'Institutional',mixed:'Mixed use'};
-  const stageMap={sd:'Schematic Design',dd50:'50% Design Development',dd100:'100% Design Development',cd50:'50% Construction Docs',cd100:'100% Construction Docs'};
-  const ctypeMap={new:'New Construction',reno:'Renovation',addition:'Addition'};
-  const budgetMap={'u25':'Under $25k','25-50':'$25k - $49k','50-100':'$50k - $99k','100-500':'$100k - $499k','500k+':'$500k+'};
-  const sfMap={'u10':'Under 10000 sf','10-25':'10000 - 24999 sf','25-50':'25000 - 49999 sf','50k+':'50000+ sf'};
-  const complexMap={simple:'Simple',moderate:'Moderate',complex:'Very Complex'};
-  const expMap={yes:'Yes',no:'No'};
   const fields=[
     {name:'firstname',value:firstname},
     {name:'lastname',value:lastname},
     {name:'email',value:email},
     {name:'phone',value:phone},
     {name:'company',value:company},
-    {name:'design_review_top_concerns',value:concerns.join('; ')},
-    {name:'dr_building_type',value:btypeMap[state.btype]||state.btype||''},
-    {name:'dr_design_stage',value:stageMap[state.stage]||state.stage||''},
-    {name:'design_review_construction_type',value:ctypeMap[state.ctype]||state.ctype||''},
-    {name:'design_review_budget',value:budgetMap[state.budget]||state.budget||''},
-    {name:'project_size__sf_',value:sfMap[state.sf]||state.sf||''},
-    {name:'building_complexity',value:complexMap[state.complexity]||state.complexity||''},
-    {name:'expedited_service',value:expMap[state.expedited]||state.expedited||''},
-    {name:'design_review_estimated_fee',value:String(total)}
+    {name:'dr_building_type',value:state.btype||''},
+    {name:'dr_design_stage',value:state.stage||''},
+    {name:'design_review_construction_type',value:state.ctype||''},
+    {name:'design_review_budget',value:state.budget||''},
+    {name:'project_size__sf_',value:state.sf||''},
+    {name:'building_complexity',value:state.complexity||''},
+    {name:'expedited_service',value:state.expedited||''},
+    {name:'design_review_estimated_fee',value:String(total)},
+    {name:'design_review_top_concerns',value:concerns.join('; ')}
   ];
   try{
-    const res=await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/416421/869d4877-86d1-4385-829e-daea36db06f3`,{
+    const res=await fetch('https://api.hsforms.com/submissions/v3/integration/submit/416421/869d4877-86d1-4385-829e-daea36db06f3',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({fields,context:{pageUri:window.location.href,pageName:'Design Review Quote Tool'}})
