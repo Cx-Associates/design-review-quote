@@ -214,6 +214,19 @@ footer a:hover{text-decoration:underline}
 
   <div class="card">
     <div class="step-label">Step 7</div>
+    <div class="question">What are your top concerns? <span style="font-size:13px;font-weight:400;color:#aaa">(select all that apply)</span></div>
+    <div class="pill-group" id="concerns">
+      <button class="pill" data-val="Energy cost" onclick="toggleConcern(this)">Energy cost</button>
+      <button class="pill" data-val="Carbon footprint" onclick="toggleConcern(this)">Carbon footprint</button>
+      <button class="pill" data-val="First cost" onclick="toggleConcern(this)">First cost</button>
+      <button class="pill" data-val="Reducing construction change orders" onclick="toggleConcern(this)">Reducing change orders</button>
+      <button class="pill" data-val="Thermal comfort" onclick="toggleConcern(this)">Thermal comfort</button>
+      <button class="pill" data-val="Site security" onclick="toggleConcern(this)">Site security</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 8</div>
     <div class="question">Do you need expedited service? <span class="tag">+$1,000</span></div>
     <div class="pill-group" id="expedited">
       <button class="pill" data-val="no">Standard turnaround</button>
