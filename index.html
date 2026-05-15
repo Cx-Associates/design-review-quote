@@ -245,9 +245,30 @@ footer a:hover{text-decoration:underline}
         <input type="text" id="hs-lastname" placeholder="Smith" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
       </div>
     </div>
-    <div style="margin-bottom:16px">
+    <div style="margin-bottom:12px">
       <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Work email</label>
       <input type="email" id="hs-email" placeholder="jane@yourfirm.com" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <div>
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Phone number</label>
+        <input type="tel" id="hs-phone" placeholder="(802) 555-0100" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
+      </div>
+      <div>
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Company name</label>
+        <input type="text" id="hs-company" placeholder="Your firm" style="width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a">
+      </div>
+    </div>
+    <div style="margin-bottom:20px">
+      <label style="font-size:12px;color:#888;display:block;margin-bottom:8px">What are your top concerns? <span style="color:#bbb">(select all that apply)</span></label>
+      <div class="pill-group" id="concerns">
+        <button class="pill" data-val="Energy cost" onclick="toggleConcern(this)">Energy cost</button>
+        <button class="pill" data-val="Carbon footprint" onclick="toggleConcern(this)">Carbon footprint</button>
+        <button class="pill" data-val="First cost" onclick="toggleConcern(this)">First cost</button>
+        <button class="pill" data-val="Reducing construction change orders" onclick="toggleConcern(this)">Reducing change orders</button>
+        <button class="pill" data-val="Thermal comfort" onclick="toggleConcern(this)">Thermal comfort</button>
+        <button class="pill" data-val="Site security" onclick="toggleConcern(this)">Site security</button>
+      </div>
     </div>
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <button class="cta" id="submit-btn" onclick="submitToHubSpot()">Get my estimate &rarr;</button>
@@ -320,10 +341,20 @@ function updatePrice(){
     document.getElementById('contact-form').style.display='block';
 }
 
+const concerns=[];
+function toggleConcern(btn){
+  const val=btn.dataset.val;
+  const idx=concerns.indexOf(val);
+  if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
+  else{concerns.push(val);btn.classList.add('active');}
+}
+
 async function submitToHubSpot(){
   const firstname=document.getElementById('hs-firstname').value.trim();
   const lastname=document.getElementById('hs-lastname').value.trim();
   const email=document.getElementById('hs-email').value.trim();
+  const phone=document.getElementById('hs-phone').value.trim();
+  const company=document.getElementById('hs-company').value.trim();
   const status=document.getElementById('submit-status');
   if(!email){status.textContent='Please enter your email.';return;}
   const btn=document.getElementById('submit-btn');
@@ -345,6 +376,9 @@ async function submitToHubSpot(){
     {name:'firstname',value:firstname},
     {name:'lastname',value:lastname},
     {name:'email',value:email},
+    {name:'phone',value:phone},
+    {name:'company',value:company},
+    {name:'design_review_top_concerns',value:concerns.join('; ')},
     {name:'dr_building_type',value:btypeMap[state.btype]||state.btype||''},
     {name:'dr_design_stage',value:stageMap[state.stage]||state.stage||''},
     {name:'design_review_construction_type',value:ctypeMap[state.ctype]||state.ctype||''},
