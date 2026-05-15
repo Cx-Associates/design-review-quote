@@ -334,18 +334,25 @@ async function submitToHubSpot(){
   const compAmt=complexPrices[state.complexity];
   const expAmt=expPrices[state.expedited];
   const total=sfAmt+compAmt+expAmt;
+  const btypeMap={commercial:'Commercial',residential:'Residential',industrial:'Industrial',institutional:'Institutional',mixed:'Mixed use'};
+  const stageMap={sd:'Schematic Design',dd50:'50% Design Development',dd100:'100% Design Development',cd50:'50% Construction Docs',cd100:'100% Construction Docs'};
+  const ctypeMap={new:'New Construction',reno:'Renovation',addition:'Addition'};
+  const budgetMap={'u25':'Under $25k','25-50':'$25k - $49k','50-100':'$50k - $99k','100-500':'$100k - $499k','500k+':'$500k+'};
+  const sfMap={'u10':'Under 10000 sf','10-25':'10000 - 24999 sf','25-50':'25000 - 49999 sf','50k+':'50000+ sf'};
+  const complexMap={simple:'Simple',moderate:'Moderate',complex:'Very Complex'};
+  const expMap={yes:'Yes',no:'No'};
   const fields=[
     {name:'firstname',value:firstname},
     {name:'lastname',value:lastname},
     {name:'email',value:email},
-    {name:'dr_building_type',value:state.btype||''},
-    {name:'dr_design_stage',value:state.stage||''},
-    {name:'design_review_construction_type',value:state.ctype||''},
-    {name:'design_review_budget',value:state.budget||''},
-    {name:'project_size__sf_',value:state.sf||''},
-    {name:'building_complexity',value:state.complexity||''},
-    {name:'expedited_service',value:state.expedited||''},
-    {name:'design_review_estimated_fee',value:fmt(total)}
+    {name:'dr_building_type',value:btypeMap[state.btype]||state.btype||''},
+    {name:'dr_design_stage',value:stageMap[state.stage]||state.stage||''},
+    {name:'design_review_construction_type',value:ctypeMap[state.ctype]||state.ctype||''},
+    {name:'design_review_budget',value:budgetMap[state.budget]||state.budget||''},
+    {name:'project_size__sf_',value:sfMap[state.sf]||state.sf||''},
+    {name:'building_complexity',value:complexMap[state.complexity]||state.complexity||''},
+    {name:'expedited_service',value:expMap[state.expedited]||state.expedited||''},
+    {name:'design_review_estimated_fee',value:String(total)}
   ];
   try{
     const res=await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/416421/869d4877-86d1-4385-829e-daea36db06f3`,{
