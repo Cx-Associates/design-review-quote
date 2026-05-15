@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HubSpot Test</title>
+</head>
+<body style="font-family:sans-serif;padding:2rem;max-width:500px">
+<h2>HubSpot Field Test</h2>
+<p style="color:#666;margin-bottom:1.5rem">This submits a single custom field to HubSpot so we can confirm it writes to the contact record.</p>
+
+<label>Email (use your real email so it matches your contact record)</label><br>
+<input type="email" id="email" value="eric@cx-assoc.com" style="width:100%;padding:8px;margin:8px 0 16px"><br>
+
+<label>dr_building_type value to send:</label><br>
+<input type="text" id="btype" value="commercial" style="width:100%;padding:8px;margin:8px 0 16px"><br>
+
+<button onclick="submit()" style="padding:10px 20px;background:#185FA5;color:#fff;border:none;cursor:pointer;font-size:15px">Submit to HubSpot</button>
+
+<pre id="result" style="margin-top:1.5rem;padding:1rem;background:#f5f5f5;font-size:13px;white-space:pre-wrap"></pre>
+
+<script>
+async function submit(){
+  const email = document.getElementById('email').value;
+  const btype = document.getElementById('btype').value;
+  const result = document.getElementById('result');
+  result.textContent = 'Submitting...';
+
+  const payload = {
+    fields: [
+      {name: 'email', value: email},
+      {name: 'dr_building_type', value: btype}
+    ],
+    context: {
+      pageUri: window.location.href,
+      pageName: 'HubSpot Field Test'
+    }
+  };
+
+  result.textContent = 'Sending payload:\n' + JSON.stringify(payload, null, 2);
+
+  try {
+    const res = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/416421/869d4877-86d1-4385-829e-daea36db06f3', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    result.textContent = 'Status: ' + res.status + '\n\nResponse:\n' + JSON.stringify(data, null, 2);
+  } catch(e) {
+    result.textContent = 'Error: ' + e.message;
+  }
+}
+</script>
+</body>
+</html>
