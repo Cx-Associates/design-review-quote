@@ -8,57 +8,79 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:#f2f0eb;color:#1a1a1a;min-height:100vh;font-size:15px}
-header{background:#2b2b2b;padding:0;border-bottom:3px solid #e8601c}
-.header-top{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:70px}
-.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-svg{height:38px;width:auto}
-.header-top nav{display:flex;gap:1.5rem}
-.header-top nav a{color:#ccc;font-size:13px;text-decoration:none;letter-spacing:0.02em}
-.header-top nav a:hover{color:#e8601c}
-.hero{background:#2b2b2b;padding:3rem 2rem;color:#fff;text-align:center}
-.hero-eyebrow{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#e8601c;font-weight:600;margin-bottom:12px}
-.hero h1{font-family:'DM Serif Display',serif;font-size:32px;font-weight:400;line-height:1.25;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
-.hero p{font-size:15px;color:#bbb;max-width:460px;margin:0 auto;line-height:1.7}
+
+/* ── Header ── */
+header{background:#fff;border-bottom:4px solid #f8991c}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:72px;max-width:1100px;margin:0 auto}
+.logo-wrap{display:flex;align-items:center;text-decoration:none}
+.logo-svg{height:36px;width:auto}
+.header-top nav{display:flex;gap:1.75rem}
+.header-top nav a{color:#6d6e70;font-size:13px;text-decoration:none;letter-spacing:0.03em;font-weight:400}
+.header-top nav a:hover{color:#f8991c}
+
+/* ── Hero ── */
+.hero{background:#005a88;padding:3.5rem 2rem 3rem;color:#fff;text-align:center}
+.hero-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#f8991c;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:34px;font-weight:400;line-height:1.2;margin-bottom:14px;max-width:540px;margin-left:auto;margin-right:auto}
+.hero p{font-size:15px;color:rgba(255,255,255,0.72);max-width:440px;margin:0 auto;line-height:1.75}
+
+/* ── Container ── */
 .container{max-width:700px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.card{background:#fff;border:1px solid #dedad4;border-radius:4px;padding:1.75rem;margin-bottom:1rem}
-.step-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#e8601c;margin-bottom:8px}
+
+/* ── Cards ── */
+.card{background:#fff;border:1px solid #e0deda;border-radius:6px;padding:1.75rem;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.step-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f8991c;margin-bottom:8px}
 .question{font-size:16px;font-weight:400;color:#1a1a1a;margin-bottom:16px;line-height:1.4}
+
+/* ── Pills ── */
 .pill-group{display:flex;flex-wrap:wrap;gap:8px}
-.pill{padding:8px 18px;border:1px solid #d0cec8;border-radius:999px;background:#fff;color:#444;font-size:14px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;line-height:1}
-.pill:hover{border-color:#e8601c;color:#c44e10}
-.pill.active{border-color:#e8601c;background:#fef1eb;color:#c44e10;font-weight:500}
+.pill{padding:8px 18px;border:1.5px solid #c6c8ca;border-radius:999px;background:#fff;color:#6d6e70;font-size:14px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;line-height:1}
+.pill:hover{border-color:#f8991c;color:#c97a10}
+.pill.active{border-color:#f8991c;background:#fff8ee;color:#c97a10;font-weight:500}
+
+/* ── Building cards ── */
 .building-group{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.bcard{border:1px solid #d0cec8;border-radius:12px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
-.bcard:hover{border-color:#e8601c}
-.bcard.active{border:2px solid #e8601c;background:#fef1eb;border-radius:12px}
-.bcard svg{width:72px;height:60px;display:block;margin:0 auto 10px;color:#2b2b2b}
-.bcard.active svg{color:#c44e10}
+.bcard{border:1.5px solid #c6c8ca;border-radius:10px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
+.bcard:hover{border-color:#f8991c}
+.bcard.active{border:2px solid #f8991c;background:#fff8ee}
+.bcard svg{width:72px;height:60px;display:block;margin:0 auto 10px;color:#6d6e70}
+.bcard.active svg{color:#c97a10}
 .blabel{font-size:13px;font-weight:600;color:#1a1a1a}
-.bsub{font-size:12px;color:#999;margin-top:3px}
-.price-section{background:#2b2b2b;border-radius:4px;padding:2rem;margin-top:1.5rem;color:#fff}
-.price-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.price-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#e8601c;margin-bottom:8px}
-.price-amt{font-family:'DM Serif Display',serif;font-size:40px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em}
-.price-note{font-size:12px;color:#888;margin-top:8px;line-height:1.6}
-.price-empty{font-size:28px;font-weight:300;color:#555}
-.breakdown{font-size:13px;color:#666;margin-top:12px;line-height:2.2}
-.breakdown span{color:#aaa}
-.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:2px;background:#fef1eb;color:#c44e10;margin-left:8px;font-weight:600;vertical-align:middle}
-.contact-card{display:none;background:#fff;border:1px solid #dedad4;border-radius:4px;padding:1.75rem;margin-top:1rem}
+.bsub{font-size:12px;color:#aaa;margin-top:3px}
+
+/* ── Price section ── */
+.price-section{background:#f8991c;border-radius:6px;padding:2rem;margin-top:1.5rem;color:#fff;box-shadow:0 2px 8px rgba(248,153,28,0.25)}
+.price-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:10px}
+.price-amt{font-family:'DM Serif Display',serif;font-size:44px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em}
+.price-note{font-size:12px;color:rgba(255,255,255,0.7);margin-top:8px;line-height:1.6}
+.price-empty{font-size:28px;font-weight:300;color:rgba(255,255,255,0.5)}
+.breakdown{font-size:13px;color:rgba(255,255,255,0.65);margin-top:12px;line-height:2.2}
+.breakdown span{color:#fff}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#fff8ee;color:#c97a10;margin-left:8px;font-weight:600;vertical-align:middle}
+
+/* ── Contact card ── */
+.contact-card{display:none;background:#fff;border:1px solid #e0deda;border-radius:6px;padding:1.75rem;margin-top:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .field-single{margin-bottom:12px}
-label.field-label{font-size:12px;color:#888;display:block;margin-bottom:4px}
-.text-input{width:100%;height:40px;padding:0 12px;border:1px solid #d0cec8;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a}
-.text-input:focus{outline:none;border-color:#e8601c}
-.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#e8601c;color:#fff;border:none;border-radius:2px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.15s;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
-.cta:hover{background:#c44e10}
-.success-card{display:none;background:#2b2b2b;border-radius:4px;padding:2rem;margin-top:1rem;text-align:center;color:#fff}
-footer{background:#2b2b2b;color:#999;padding:2rem;font-size:13px;border-top:3px solid #e8601c}
+label.field-label{font-size:12px;color:#6d6e70;display:block;margin-bottom:4px;font-weight:500}
+.text-input{width:100%;height:42px;padding:0 14px;border:1.5px solid #c6c8ca;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a;transition:border-color 0.15s}
+.text-input:focus{outline:none;border-color:#1ba1db}
+
+/* ── CTA ── */
+.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:#f8991c;color:#fff;border:none;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.15s;letter-spacing:0.03em;white-space:nowrap}
+.cta:hover{background:#c97a10}
+
+/* ── Success ── */
+.success-card{display:none;background:#005a88;border-radius:6px;padding:2.5rem;margin-top:1rem;text-align:center;color:#fff}
+
+/* ── Footer ── */
+footer{background:#005a88;color:rgba(255,255,255,0.6);padding:2rem;font-size:13px;border-top:4px solid #f8991c}
 .footer-inner{max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-footer a{color:#e8601c;text-decoration:none}
+footer a{color:#f8991c;text-decoration:none}
+footer a:hover{text-decoration:underline}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{color:#aaa;font-size:12px;text-decoration:none}
-.footer-links a:hover{color:#e8601c}
+.footer-links a{color:rgba(255,255,255,0.55);font-size:12px;text-decoration:none}
+.footer-links a:hover{color:#f8991c}
 </style>
 </head>
 <body>
@@ -66,11 +88,7 @@ footer a{color:#e8601c;text-decoration:none}
 <header>
   <div class="header-top">
     <a class="logo-wrap" href="https://www.cx-associates.com">
-      <svg class="logo-svg" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="36" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="900" fill="#f0a500">C</text>
-        <text x="26" y="36" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="900" fill="#f0a500">x</text>
-        <text x="58" y="34" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="400" fill="#888888">associates</text>
-      </svg>
+      <img src="https://raw.githubusercontent.com/Cx-Associates/design-review-quote/main/CxA%20Logo%20White%20Rec%20Background.png" alt="Cx Associates" style="height:42px;width:auto;display:block">
     </a>
     <nav>
       <a href="https://www.cx-associates.com/services">Services</a>
@@ -217,14 +235,10 @@ footer a{color:#e8601c;text-decoration:none}
   </div>
 
   <div class="price-section">
-    <div class="price-inner">
-      <div>
-        <div class="price-label">Estimated review fee</div>
-        <div id="price-display" class="price-empty">—</div>
-        <div class="price-note" id="price-note">Answer all questions above to see your estimate.</div>
-        <div class="breakdown" id="breakdown"></div>
-      </div>
-    </div>
+    <div class="price-label">Estimated review fee</div>
+    <div id="price-display" class="price-empty">—</div>
+    <div class="price-note" id="price-note">Answer all questions above to see your estimate.</div>
+    <div class="breakdown" id="breakdown"></div>
   </div>
 
   <div class="contact-card" id="contact-form">
@@ -256,14 +270,14 @@ footer a{color:#e8601c;text-decoration:none}
     </div>
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <button class="cta" id="submit-btn" onclick="submitToHubSpot()">Get my estimate &rarr;</button>
-      <div id="submit-status" style="font-size:13px;color:#888"></div>
+      <div id="submit-status" style="font-size:13px;color:#6d6e70"></div>
     </div>
     <div style="font-size:12px;color:#aaa;margin-top:10px">We'll follow up within one business day.</div>
   </div>
 
   <div class="success-card" id="success-msg">
-    <div style="font-size:22px;font-family:'DM Serif Display',serif;margin-bottom:8px">Thanks — we'll be in touch!</div>
-    <div style="font-size:14px;color:#aaa">A member of our team will follow up within one business day to confirm your scope and next steps.</div>
+    <div style="font-size:24px;font-family:'DM Serif Display',serif;margin-bottom:10px">Thanks — we'll be in touch!</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7">A member of our team will follow up within one business day to confirm your scope and next steps.</div>
   </div>
 
 </div>
@@ -281,7 +295,7 @@ footer a{color:#e8601c;text-decoration:none}
       <a href="https://www.cx-associates.com/privacy-policy">Privacy policy</a>
     </div>
   </div>
-  <div style="max-width:700px;margin:1rem auto 0;font-size:12px;border-top:1px solid #3a3a3a;padding-top:1rem">
+  <div style="max-width:700px;margin:1rem auto 0;font-size:12px;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem">
     Copyright &copy; 2026, Cx Associates, Inc.
   </div>
 </footer>
@@ -306,15 +320,13 @@ function initGroup(id,key){
   });
 }
 
-function toggleConcern(btn){
-  const val=btn.dataset.val;
-  const idx=concerns.indexOf(val);
-  if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
-  else{concerns.push(val);btn.classList.add('active');}
-}
-
 document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>{
-  btn.addEventListener('click',()=>toggleConcern(btn));
+  btn.addEventListener('click',()=>{
+    const val=btn.dataset.val;
+    const idx=concerns.indexOf(val);
+    if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
+    else{concerns.push(val);btn.classList.add('active');}
+  });
 });
 
 ['btype','stage','ctype','budget','sf','complexity','expedited'].forEach(id=>initGroup(id,id));
