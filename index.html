@@ -8,37 +8,27 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:#f2f0eb;color:#1a1a1a;min-height:100vh;font-size:15px}
-
-/* ── Header ── */
 header{background:#fff;border-bottom:4px solid #f8991c}
 .header-top{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:72px;max-width:1100px;margin:0 auto}
 .logo-wrap{display:flex;align-items:center;text-decoration:none}
-.logo-svg{height:36px;width:auto}
 .header-top nav{display:flex;gap:1.75rem}
 .header-top nav a{color:#6d6e70;font-size:13px;text-decoration:none;letter-spacing:0.03em;font-weight:400}
 .header-top nav a:hover{color:#f8991c}
-
-/* ── Hero ── */
 .hero{background:#005a88;padding:3.5rem 2rem 3rem;color:#fff;text-align:center}
 .hero-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#f8991c;font-weight:600;margin-bottom:14px}
 .hero h1{font-family:'DM Serif Display',serif;font-size:34px;font-weight:400;line-height:1.2;margin-bottom:14px;max-width:540px;margin-left:auto;margin-right:auto}
 .hero p{font-size:15px;color:rgba(255,255,255,0.72);max-width:440px;margin:0 auto;line-height:1.75}
-
-/* ── Container ── */
 .container{max-width:700px;margin:0 auto;padding:2rem 1.5rem 4rem}
-
-/* ── Cards ── */
 .card{background:#fff;border:1px solid #e0deda;border-radius:6px;padding:1.75rem;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .step-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f8991c;margin-bottom:8px}
 .question{font-size:16px;font-weight:400;color:#1a1a1a;margin-bottom:16px;line-height:1.4}
-
-/* ── Pills ── */
 .pill-group{display:flex;flex-wrap:wrap;gap:8px}
 .pill{padding:8px 18px;border:1.5px solid #c6c8ca;border-radius:999px;background:#fff;color:#6d6e70;font-size:14px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;line-height:1}
 .pill:hover{border-color:#f8991c;color:#c97a10}
 .pill.active{border-color:#f8991c;background:#fff8ee;color:#c97a10;font-weight:500}
-
-/* ── Building cards ── */
+.other-input{margin-top:10px;display:none}
+.other-input input{height:38px;padding:0 14px;border:1.5px solid #c6c8ca;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a;width:100%;max-width:320px;transition:border-color 0.15s}
+.other-input input:focus{outline:none;border-color:#1ba1db}
 .building-group{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .bcard{border:1.5px solid #c6c8ca;border-radius:10px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
 .bcard:hover{border-color:#f8991c}
@@ -47,8 +37,6 @@ header{background:#fff;border-bottom:4px solid #f8991c}
 .bcard.active svg{color:#c97a10}
 .blabel{font-size:13px;font-weight:600;color:#1a1a1a}
 .bsub{font-size:12px;color:#aaa;margin-top:3px}
-
-/* ── Price section ── */
 .price-section{background:#f8991c;border-radius:6px;padding:2rem;margin-top:1.5rem;color:#fff;box-shadow:0 2px 8px rgba(248,153,28,0.25)}
 .price-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:10px}
 .price-amt{font-family:'DM Serif Display',serif;font-size:44px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em}
@@ -57,23 +45,15 @@ header{background:#fff;border-bottom:4px solid #f8991c}
 .breakdown{font-size:13px;color:rgba(255,255,255,0.65);margin-top:12px;line-height:2.2}
 .breakdown span{color:#fff}
 .tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#fff8ee;color:#c97a10;margin-left:8px;font-weight:600;vertical-align:middle}
-
-/* ── Contact card ── */
 .contact-card{display:none;background:#fff;border:1px solid #e0deda;border-radius:6px;padding:1.75rem;margin-top:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .field-single{margin-bottom:12px}
 label.field-label{font-size:12px;color:#6d6e70;display:block;margin-bottom:4px;font-weight:500}
 .text-input{width:100%;height:42px;padding:0 14px;border:1.5px solid #c6c8ca;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a;transition:border-color 0.15s}
 .text-input:focus{outline:none;border-color:#1ba1db}
-
-/* ── CTA ── */
 .cta{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:#f8991c;color:#fff;border:none;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.15s;letter-spacing:0.03em;white-space:nowrap}
 .cta:hover{background:#c97a10}
-
-/* ── Success ── */
 .success-card{display:none;background:#005a88;border-radius:6px;padding:2.5rem;margin-top:1rem;text-align:center;color:#fff}
-
-/* ── Footer ── */
 footer{background:#005a88;color:rgba(255,255,255,0.6);padding:2rem;font-size:13px;border-top:4px solid #f8991c}
 .footer-inner{max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 footer a{color:#f8991c;text-decoration:none}
@@ -106,6 +86,7 @@ footer a:hover{text-decoration:underline}
 
 <div class="container">
 
+  <!-- Step 1: Building Type -->
   <div class="card">
     <div class="step-label">Step 1</div>
     <div class="question">What type of building is this project?</div>
@@ -115,9 +96,14 @@ footer a:hover{text-decoration:underline}
       <button class="pill" data-val="Industrial">Industrial</button>
       <button class="pill" data-val="Institutional">Institutional</button>
       <button class="pill" data-val="Mixed use">Mixed use</button>
+      <button class="pill" data-val="Other" id="btype-other-pill">Other</button>
+    </div>
+    <div class="other-input" id="btype-other-wrap">
+      <input type="text" id="btype-other-text" placeholder="Please describe...">
     </div>
   </div>
 
+  <!-- Step 2: Design Stage -->
   <div class="card">
     <div class="step-label">Step 2</div>
     <div class="question">What design stage are you at?</div>
@@ -130,6 +116,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- Step 3: Construction Type -->
   <div class="card">
     <div class="step-label">Step 3</div>
     <div class="question">New construction or renovation?</div>
@@ -140,18 +127,20 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- Step 4: Budget -->
   <div class="card">
     <div class="step-label">Step 4</div>
     <div class="question">Approximate total project budget?</div>
     <div class="pill-group" id="budget">
-      <button class="pill" data-val="Under $25k">Under $25k</button>
-      <button class="pill" data-val="$25k - $49k">$25k – $49k</button>
-      <button class="pill" data-val="$50k - $99k">$50k – $99k</button>
-      <button class="pill" data-val="$100k - $499k">$100k – $499k</button>
-      <button class="pill" data-val="$500k+">$500k+</button>
+      <button class="pill" data-val="Under $1M">Under $1M</button>
+      <button class="pill" data-val="$1M – $5M">$1M – $5M</button>
+      <button class="pill" data-val="$5M – $10M">$5M – $10M</button>
+      <button class="pill" data-val="$10M – $15M">$10M – $15M</button>
+      <button class="pill" data-val="Over $15M">Over $15M</button>
     </div>
   </div>
 
+  <!-- Step 5: Project Size -->
   <div class="card">
     <div class="step-label">Step 5</div>
     <div class="question">Approximate project size?</div>
@@ -163,6 +152,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- Step 6: Complexity -->
   <div class="card">
     <div class="step-label">Step 6</div>
     <div class="question">How would you describe the building's complexity?</div>
@@ -212,8 +202,20 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- Step 7: Type of Design Review -->
   <div class="card">
     <div class="step-label">Step 7</div>
+    <div class="question">What type of design review do you need?</div>
+    <div class="pill-group" id="reviewtype">
+      <button class="pill" data-val="MEP Systems">MEP Systems</button>
+      <button class="pill" data-val="Building Enclosure">Building Enclosure</button>
+      <button class="pill" data-val="Both">Both</button>
+    </div>
+  </div>
+
+  <!-- Step 8: Top Concerns -->
+  <div class="card">
+    <div class="step-label">Step 8</div>
     <div class="question">What are your top concerns? <span style="font-size:13px;font-weight:400;color:#aaa">(select all that apply)</span></div>
     <div class="pill-group" id="concerns">
       <button class="pill" data-val="Energy cost">Energy cost</button>
@@ -222,11 +224,16 @@ footer a:hover{text-decoration:underline}
       <button class="pill" data-val="Reducing construction change orders">Reducing change orders</button>
       <button class="pill" data-val="Thermal comfort">Thermal comfort</button>
       <button class="pill" data-val="Site security">Site security</button>
+      <button class="pill" data-val="Other" id="concerns-other-pill">Other</button>
+    </div>
+    <div class="other-input" id="concerns-other-wrap">
+      <input type="text" id="concerns-other-text" placeholder="Please describe...">
     </div>
   </div>
 
+  <!-- Step 9: Expedited -->
   <div class="card">
-    <div class="step-label">Step 8</div>
+    <div class="step-label">Step 9</div>
     <div class="question">Do you need expedited service? <span class="tag">+$1,000</span></div>
     <div class="pill-group" id="expedited">
       <button class="pill" data-val="No">Standard turnaround</button>
@@ -234,6 +241,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- Price -->
   <div class="price-section">
     <div class="price-label">Estimated review fee</div>
     <div id="price-display" class="price-empty">—</div>
@@ -241,6 +249,7 @@ footer a:hover{text-decoration:underline}
     <div class="breakdown" id="breakdown"></div>
   </div>
 
+  <!-- Contact -->
   <div class="contact-card" id="contact-form">
     <div class="step-label">Almost there</div>
     <div class="question" style="margin-bottom:16px">Where should we send your quote summary?</div>
@@ -275,6 +284,7 @@ footer a:hover{text-decoration:underline}
     <div style="font-size:12px;color:#aaa;margin-top:10px">We'll follow up within one business day.</div>
   </div>
 
+  <!-- Success -->
   <div class="success-card" id="success-msg">
     <div style="font-size:24px;font-family:'DM Serif Display',serif;margin-bottom:10px">Thanks — we'll be in touch!</div>
     <div style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7">A member of our team will follow up within one business day to confirm your scope and next steps.</div>
@@ -304,7 +314,7 @@ footer a:hover{text-decoration:underline}
 const sfPrices={'Under 10000 sf':850,'10000 - 24999 sf':1100,'25000 - 49999 sf':1500,'50000+ sf':2500};
 const complexPrices={'Simple':0,'Moderate':250,'Very Complex':1000};
 const expPrices={'Yes':1000,'No':0};
-const state={btype:null,stage:null,ctype:null,budget:null,sf:null,complexity:null,expedited:null};
+const state={btype:null,stage:null,ctype:null,budget:null,sf:null,complexity:null,reviewtype:null,expedited:null};
 const concerns=[];
 
 function fmt(n){return '$'+n.toLocaleString('en-US');}
@@ -320,16 +330,46 @@ function initGroup(id,key){
   });
 }
 
-document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>{
+// Building type -- single select with Other text
+initGroup('stage','stage');
+initGroup('ctype','ctype');
+initGroup('budget','budget');
+initGroup('sf','sf');
+initGroup('complexity','complexity');
+initGroup('reviewtype','reviewtype');
+initGroup('expedited','expedited');
+
+document.getElementById('btype').querySelectorAll('[data-val]').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    const val=btn.dataset.val;
-    const idx=concerns.indexOf(val);
-    if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
-    else{concerns.push(val);btn.classList.add('active');}
+    document.getElementById('btype').querySelectorAll('[data-val]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const wrap=document.getElementById('btype-other-wrap');
+    if(btn.dataset.val==='Other'){
+      wrap.style.display='block';
+      state.btype='Other';
+    } else {
+      wrap.style.display='none';
+      state.btype=btn.dataset.val;
+    }
+    updatePrice();
   });
 });
 
-['btype','stage','ctype','budget','sf','complexity','expedited'].forEach(id=>initGroup(id,id));
+// Concerns -- multi select with Other text
+document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const val=btn.dataset.val;
+    if(val==='Other'){
+      btn.classList.toggle('active');
+      const wrap=document.getElementById('concerns-other-wrap');
+      wrap.style.display=btn.classList.contains('active')?'block':'none';
+    } else {
+      const idx=concerns.indexOf(val);
+      if(idx>-1){concerns.splice(idx,1);btn.classList.remove('active');}
+      else{concerns.push(val);btn.classList.add('active');}
+    }
+  });
+});
 
 function updatePrice(){
   if(!state.sf||!state.complexity||!state.expedited) return;
@@ -357,21 +397,38 @@ async function submitToHubSpot(){
   const company=document.getElementById('hs-company').value.trim();
   const status=document.getElementById('submit-status');
   if(!email){status.textContent='Please enter your email.';return;}
+
   const btn=document.getElementById('submit-btn');
   btn.textContent='Submitting...';
   btn.style.opacity='0.7';
   status.textContent='';
+
   const sfAmt=sfPrices[state.sf];
   const compAmt=complexPrices[state.complexity];
   const expAmt=expPrices[state.expedited];
   const total=sfAmt+compAmt+expAmt;
+
+  // Build building type value
+  let btypeVal=state.btype==='Other'
+    ? 'Other: '+(document.getElementById('btype-other-text').value.trim()||'unspecified')
+    : state.btype||'';
+
+  // Build concerns value
+  let concernsList=[...concerns];
+  const otherConcernPill=document.getElementById('concerns-other-pill');
+  if(otherConcernPill.classList.contains('active')){
+    const otherText=document.getElementById('concerns-other-text').value.trim();
+    if(otherText) concernsList.push('Other: '+otherText);
+    else concernsList.push('Other');
+  }
+
   const fields=[
     {name:'firstname',value:firstname},
     {name:'lastname',value:lastname},
     {name:'email',value:email},
     {name:'phone',value:phone},
     {name:'company',value:company},
-    {name:'dr_building_type',value:state.btype||''},
+    {name:'dr_building_type',value:btypeVal},
     {name:'dr_design_stage',value:state.stage||''},
     {name:'design_review_construction_type',value:state.ctype||''},
     {name:'design_review_budget',value:state.budget||''},
@@ -379,8 +436,10 @@ async function submitToHubSpot(){
     {name:'building_complexity',value:state.complexity||''},
     {name:'expedited_service',value:state.expedited||''},
     {name:'design_review_estimated_fee',value:String(total)},
-    {name:'design_review_top_concerns',value:concerns.join('; ')}
+    {name:'design_review_top_concerns',value:concernsList.join('; ')},
+    {name:'design_review_review_type',value:state.reviewtype||''}
   ];
+
   try{
     const res=await fetch('https://api.hsforms.com/submissions/v3/integration/submit/416421/869d4877-86d1-4385-829e-daea36db06f3',{
       method:'POST',
