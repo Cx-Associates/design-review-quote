@@ -444,7 +444,10 @@ function updatePrice(){
   const sfIdx=isCD(state.stage)?1:0;
   const sfH=sfAdj[state.sf][sfIdx];
   if(sfH>0) lines.push(`<span>Size add-on:</span> +${sfH} hrs`);
-  if(state.ctype==='Addition'&&state.hydronic==='No') lines.push(`<span>Addition (no central equipment):</span> -1.5 hrs`);
+  if(state.ctype==='Addition'){
+    if(state.hydronic==='No') lines.push(`<span>Addition (no central equipment):</span> -1.5 hrs`);
+    else lines.push(`<span>Addition (new central equipment included):</span> no adjustment`);
+  }
   if(state.btype==='Healthcare') lines.push(`<span>Healthcare multiplier:</span> ×1.25`);
   lines.push(`<span>Complexity multiplier:</span> ×${complexMult[state.complexity]}`);
   lines.push(`<span>Hourly rate:</span> $${HOURLY_RATE}/hr`);
