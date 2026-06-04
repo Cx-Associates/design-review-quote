@@ -30,6 +30,8 @@ header{background:#fff;border-bottom:4px solid #f8991c}
 .other-input{margin-top:10px;display:none}
 .other-input input{height:38px;padding:0 14px;border:1.5px solid #c6c8ca;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:#1a1a1a;width:100%;max-width:320px;transition:border-color 0.15s}
 .other-input input:focus{outline:none;border-color:#1ba1db}
+.sub-question{display:none;margin-top:16px;padding-top:16px;border-top:1px solid #f0ede8}
+.sub-question .question{font-size:15px;margin-bottom:12px}
 .building-group{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .bcard{border:1.5px solid #c6c8ca;border-radius:10px;background:#fff;padding:18px 12px;cursor:pointer;text-align:center;transition:all 0.15s;font-family:inherit}
 .bcard:hover{border-color:#f8991c}
@@ -118,6 +120,7 @@ footer a:hover{text-decoration:underline}
     <div class="question">What type of building is this project?</div>
     <div class="pill-group" id="btype">
       <button class="pill" data-val="Commercial">Commercial</button>
+      <button class="pill" data-val="Healthcare">Healthcare</button>
       <button class="pill" data-val="Residential">Residential</button>
       <button class="pill" data-val="Industrial">Industrial</button>
       <button class="pill" data-val="Institutional">Institutional</button>
@@ -134,22 +137,29 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 3</div>
     <div class="question">What design stage are you at?</div>
     <div class="pill-group" id="stage">
-      <button class="pill" data-val="Schematic Design">Schematic design</button>
-      <button class="pill" data-val="50% Design Development">50% design development</button>
-      <button class="pill" data-val="100% Design Development">100% design development</button>
-      <button class="pill" data-val="50% Construction Docs">50% construction docs</button>
-      <button class="pill" data-val="100% Construction Docs">100% construction docs</button>
+      <button class="pill" data-val="SD">Schematic design</button>
+      <button class="pill" data-val="50DD">50% design development</button>
+      <button class="pill" data-val="100DD">100% design development</button>
+      <button class="pill" data-val="50CD">50% construction docs</button>
+      <button class="pill" data-val="90CD">90% construction docs</button>
+      <button class="pill" data-val="100CD">100% construction docs</button>
     </div>
   </div>
 
   <!-- Step 4: Construction Type -->
   <div class="card">
     <div class="step-label">Step 4</div>
-    <div class="question">New construction or renovation?</div>
+    <div class="question">New construction or addition?</div>
     <div class="pill-group" id="ctype">
       <button class="pill" data-val="New Construction">New construction</button>
-      <button class="pill" data-val="Renovation">Renovation</button>
       <button class="pill" data-val="Addition">Addition</button>
+    </div>
+    <div class="sub-question" id="hydronic-question">
+      <div class="question">Will new central equipment (boilers, chillers) be installed in the addition?</div>
+      <div class="pill-group" id="hydronic">
+        <button class="pill" data-val="Yes">Yes</button>
+        <button class="pill" data-val="No">No</button>
+      </div>
     </div>
   </div>
 
@@ -171,10 +181,11 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 6</div>
     <div class="question">Approximate project size?</div>
     <div class="pill-group" id="sf">
-      <button class="pill" data-val="Under 10000 sf">Under 10,000 sf</button>
-      <button class="pill" data-val="10000 - 24999 sf">10,000 – 24,999 sf</button>
-      <button class="pill" data-val="25000 - 49999 sf">25,000 – 49,999 sf</button>
-      <button class="pill" data-val="50000+ sf">50,000+ sf</button>
+      <button class="pill" data-val="u10">Under 10,000 sf</button>
+      <button class="pill" data-val="10-25">10,000 – 24,999 sf</button>
+      <button class="pill" data-val="25-50">25,000 – 49,999 sf</button>
+      <button class="pill" data-val="50-150">50,000 – 150,000 sf</button>
+      <button class="pill" data-val="150k+">Over 150,000 sf</button>
     </div>
   </div>
 
@@ -233,8 +244,8 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Step 8</div>
     <div class="question">What type of design review do you need?</div>
     <div class="pill-group" id="reviewtype">
-      <button class="pill" data-val="MEP Systems">MEP Systems</button>
-      <button class="pill" data-val="Building Enclosure">Building Enclosure</button>
+      <button class="pill" data-val="MEP">MEP Systems</button>
+      <button class="pill" data-val="BECx">Building Enclosure</button>
       <button class="pill" data-val="Both">Both</button>
     </div>
   </div>
@@ -280,7 +291,6 @@ footer a:hover{text-decoration:underline}
     <div class="step-label">Almost there</div>
     <div class="question" style="margin-bottom:4px">Where should we send your quote summary?</div>
     <p style="font-size:13px;color:#aaa;margin-bottom:16px">Fields marked <span style="color:#f8991c">*</span> are required.</p>
-
     <div class="field-row">
       <div>
         <label class="field-label">First name <span class="req">*</span></label>
@@ -310,12 +320,10 @@ footer a:hover{text-decoration:underline}
         <div class="error-msg" id="err-company">Please enter your company name.</div>
       </div>
     </div>
-
     <label class="opt-in" style="margin-bottom:20px">
       <input type="checkbox" id="marketing-optin">
       <span>I'd like to receive occasional updates and insights from Cx Associates. You can unsubscribe at any time.</span>
     </label>
-
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <button class="cta" id="submit-btn" onclick="submitToHubSpot()">Get my estimate &rarr;</button>
       <div id="submit-status" style="font-size:13px;color:#6d6e70"></div>
@@ -351,13 +359,103 @@ footer a:hover{text-decoration:underline}
 
 <script>
 const RECAPTCHA_SITE_KEY='6LeO7AotAAAAAIXEdMfnK2N3mFF-OGVB---G3IWY';
-const sfPrices={'Under 10000 sf':850,'10000 - 24999 sf':1100,'25000 - 49999 sf':1500,'50000+ sf':2500};
-const complexPrices={'Simple':0,'Moderate':250,'Very Complex':1000};
-const expPrices={'Yes':1000,'No':0};
-const state={btype:null,stage:null,ctype:null,budget:null,sf:null,complexity:null,reviewtype:null,expedited:null};
+const HOURLY_RATE=200;
+const CXALLOY_FEE=200;
+const EXPEDITED_FEE=1000;
+
+// Stage hour adjustments (from 100DD baseline of 0)
+const stageAdj={SD:-2,'50DD':-1,'100DD':0,'50CD':1,'90CD':2,'100CD':3};
+
+// SF add-on hours: [DD stages, CD stages] cumulative
+const sfAdj={
+  u10:   [0, 0],
+  '10-25': [1, 2],
+  '25-50': [2, 4],  // cumulative: 1+1 DD, 2+2 CD
+  '50-150':[4, 7],  // cumulative: 2+2 DD, 4+3 CD
+  '150k+': [6,10]   // cumulative: 4+2 DD, 7+3 CD
+};
+
+const complexMult={Simple:1.0,Moderate:1.2,'Very Complex':1.4};
+const healthcareMult=1.25;
+
+const state={
+  btype:null,stage:null,ctype:null,hydronic:null,
+  budget:null,sf:null,complexity:null,reviewtype:null,expedited:null
+};
 const concerns=[];
 
-function fmt(n){return '$'+n.toLocaleString('en-US');}
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+function isCD(stage){return['50CD','90CD','100CD'].includes(stage);}
+
+function calcPrice(){
+  if(!state.sf||!state.complexity||!state.expedited||!state.stage||!state.reviewtype||!state.ctype) return null;
+  if(state.ctype==='Addition'&&state.hydronic===null) return null;
+
+  // Base hours
+  let hrs = 6 + 1.5 + 3 + 2.5; // DR + KO + meeting + backcheck = 13.5
+
+  // Stage adjustment
+  hrs += stageAdj[state.stage]||0;
+
+  // SF add-on (cumulative, DD vs CD)
+  const sfIdx = isCD(state.stage) ? 1 : 0;
+  hrs += sfAdj[state.sf][sfIdx];
+
+  // Construction type: Addition with no new central equipment
+  if(state.ctype==='Addition'&&state.hydronic==='No') hrs -= 1.5;
+
+  // Healthcare multiplier (before complexity)
+  if(state.btype==='Healthcare') hrs *= healthcareMult;
+
+  // Complexity multiplier
+  hrs *= complexMult[state.complexity];
+
+  // Base fee
+  let fee = hrs * HOURLY_RATE;
+
+  // CxAlloy flat fee
+  fee += CXALLOY_FEE;
+
+  // Both review types = double
+  if(state.reviewtype==='Both') fee *= 2;
+
+  // Expedited
+  if(state.expedited==='Yes') fee += EXPEDITED_FEE;
+
+  return {fee, hrs};
+}
+
+function updatePrice(){
+  const result=calcPrice();
+  if(!result) return;
+  const {fee,hrs}=result;
+  const disp=document.getElementById('price-display');
+  disp.className='price-amt';
+  disp.textContent=fmt(fee);
+  document.getElementById('price-note').textContent='Estimate based on your selections — final scope confirmed at kickoff.';
+
+  // Breakdown
+  const lines=[];
+  let baseHrs=6+1.5+3+2.5;
+  lines.push(`<span>Base hours (DR + KO + meeting + backcheck):</span> ${baseHrs} hrs`);
+  const sAdj=stageAdj[state.stage]||0;
+  if(sAdj!==0) lines.push(`<span>Design stage adjustment:</span> ${sAdj>0?'+':''}${sAdj} hrs`);
+  const sfIdx=isCD(state.stage)?1:0;
+  const sfH=sfAdj[state.sf][sfIdx];
+  if(sfH>0) lines.push(`<span>Size add-on:</span> +${sfH} hrs`);
+  if(state.ctype==='Addition'&&state.hydronic==='No') lines.push(`<span>Addition (no central equipment):</span> -1.5 hrs`);
+  if(state.btype==='Healthcare') lines.push(`<span>Healthcare multiplier:</span> ×1.25`);
+  lines.push(`<span>Complexity multiplier:</span> ×${complexMult[state.complexity]}`);
+  lines.push(`<span>Hourly rate:</span> $${HOURLY_RATE}/hr`);
+  lines.push(`<span>CxAlloy:</span> +$${CXALLOY_FEE}`);
+  if(state.reviewtype==='Both') lines.push(`<span>Both MEP + Building Enclosure:</span> ×2`);
+  if(state.expedited==='Yes') lines.push(`<span>Expedited service:</span> +$${EXPEDITED_FEE}`);
+  document.getElementById('breakdown').innerHTML=lines.join('<br>');
+
+  const allDone=Object.values(state).every(v=>v!==null);
+  if(allDone) document.getElementById('contact-form').style.display='block';
+}
 
 function initGroup(id,key){
   document.getElementById(id).querySelectorAll('[data-val]').forEach(btn=>{
@@ -371,29 +469,45 @@ function initGroup(id,key){
 }
 
 initGroup('stage','stage');
-initGroup('ctype','ctype');
 initGroup('budget','budget');
 initGroup('sf','sf');
 initGroup('complexity','complexity');
 initGroup('reviewtype','reviewtype');
 initGroup('expedited','expedited');
 
+// Building type with Other text
 document.getElementById('btype').querySelectorAll('[data-val]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.getElementById('btype').querySelectorAll('[data-val]').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    const wrap=document.getElementById('btype-other-wrap');
-    if(btn.dataset.val==='Other'){
-      wrap.style.display='block';
-      state.btype='Other';
+    document.getElementById('btype-other-wrap').style.display=btn.dataset.val==='Other'?'block':'none';
+    state.btype=btn.dataset.val;
+    updatePrice();
+  });
+});
+
+// Construction type with hydronic sub-question
+document.getElementById('ctype').querySelectorAll('[data-val]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.getElementById('ctype').querySelectorAll('[data-val]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    state.ctype=btn.dataset.val;
+    const hq=document.getElementById('hydronic-question');
+    if(btn.dataset.val==='Addition'){
+      hq.style.display='block';
+      state.hydronic=null; // require answer
     } else {
-      wrap.style.display='none';
-      state.btype=btn.dataset.val;
+      hq.style.display='none';
+      state.hydronic='N/A';
     }
     updatePrice();
   });
 });
 
+// Hydronic sub-question
+initGroup('hydronic','hydronic');
+
+// Concerns multi-select with Other
 document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const val=btn.dataset.val;
@@ -407,24 +521,6 @@ document.getElementById('concerns').querySelectorAll('[data-val]').forEach(btn=>
     }
   });
 });
-
-function updatePrice(){
-  if(!state.sf||!state.complexity||!state.expedited) return;
-  const sfAmt=sfPrices[state.sf];
-  const compAmt=complexPrices[state.complexity];
-  const expAmt=expPrices[state.expedited];
-  const total=sfAmt+compAmt+expAmt;
-  const disp=document.getElementById('price-display');
-  disp.className='price-amt';
-  disp.textContent=fmt(total);
-  document.getElementById('price-note').textContent='Estimate based on your selections — final scope confirmed at kickoff.';
-  let lines=['<span>Base (size):</span> '+fmt(sfAmt)];
-  if(compAmt>0) lines.push('<span>Complexity add-on:</span> +'+fmt(compAmt));
-  if(expAmt>0) lines.push('<span>Expedited service:</span> +'+fmt(expAmt));
-  document.getElementById('breakdown').innerHTML=lines.join('<br>');
-  if(Object.values(state).every(v=>v!==null))
-    document.getElementById('contact-form').style.display='block';
-}
 
 function validateForm(){
   let valid=true;
@@ -459,31 +555,28 @@ async function submitToHubSpot(){
   status.textContent='';
 
   let recaptchaToken='';
-  try{
-    recaptchaToken=await grecaptcha.execute(RECAPTCHA_SITE_KEY,{action:'submit'});
-  } catch(e){
-    console.warn('reCAPTCHA failed:',e);
-  }
+  try{recaptchaToken=await grecaptcha.execute(RECAPTCHA_SITE_KEY,{action:'submit'});}
+  catch(e){console.warn('reCAPTCHA failed:',e);}
 
-  const sfAmt=sfPrices[state.sf];
-  const compAmt=complexPrices[state.complexity];
-  const expAmt=expPrices[state.expedited];
-  const total=sfAmt+compAmt+expAmt;
+  const result=calcPrice();
+  const total=result?Math.round(result.fee):0;
 
   const btypeVal=state.btype==='Other'
     ?'Other: '+(document.getElementById('btype-other-text').value.trim()||'unspecified')
     :state.btype||'';
 
   const concernsList=[...concerns];
-  const otherConcernPill=document.getElementById('concerns-other-pill');
-  if(otherConcernPill.classList.contains('active')){
+  if(document.getElementById('concerns-other-pill').classList.contains('active')){
     const t=document.getElementById('concerns-other-text').value.trim();
     concernsList.push(t?'Other: '+t:'Other');
   }
 
   const city=document.getElementById('project-city').value.trim();
-  const stateVal=document.getElementById('project-state').value.trim().toUpperCase();
-  const location=city&&stateVal?city+', '+stateVal:city||stateVal||'';
+  const stateAbbr=document.getElementById('project-state').value.trim().toUpperCase();
+  const location=city&&stateAbbr?city+', '+stateAbbr:city||stateAbbr||'';
+
+  const stageLabels={SD:'Schematic Design','50DD':'50% Design Development','100DD':'100% Design Development','50CD':'50% Construction Docs','90CD':'90% Construction Docs','100CD':'100% Construction Docs'};
+  const reviewLabels={MEP:'MEP Systems',BECx:'Building Enclosure',Both:'Both'};
 
   const fields=[
     {name:'firstname',value:document.getElementById('hs-firstname').value.trim()},
@@ -492,7 +585,7 @@ async function submitToHubSpot(){
     {name:'phone',value:document.getElementById('hs-phone').value.trim()},
     {name:'company',value:document.getElementById('hs-company').value.trim()},
     {name:'dr_building_type',value:btypeVal},
-    {name:'dr_design_stage',value:state.stage||''},
+    {name:'dr_design_stage',value:stageLabels[state.stage]||state.stage||''},
     {name:'design_review_construction_type',value:state.ctype||''},
     {name:'design_review_budget',value:state.budget||''},
     {name:'project_size__sf_',value:state.sf||''},
@@ -500,7 +593,7 @@ async function submitToHubSpot(){
     {name:'expedited_service',value:state.expedited||''},
     {name:'design_review_estimated_fee',value:String(total)},
     {name:'design_review_top_concerns',value:concernsList.join('; ')},
-    {name:'design_review_review_type',value:state.reviewtype||''},
+    {name:'design_review_review_type',value:reviewLabels[state.reviewtype]||state.reviewtype||''},
     {name:'design_review_project_location',value:location},
     {name:'marketing_opt_in',value:document.getElementById('marketing-optin').checked?'Yes':'No'}
   ];
