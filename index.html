@@ -284,6 +284,7 @@ footer a:hover{text-decoration:underline}
     <div id="price-display" class="price-empty">—</div>
     <div class="price-note" id="price-note">Answer all questions above to see your estimate.</div>
     <div class="breakdown" id="breakdown"></div>
+    <div id="fine-print" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7"><em>This estimate is intended as a preliminary budgeting guide based on the information provided. Final fees may vary depending on actual project scope, document completeness, and specific service requirements. A formal proposal will be provided following an initial project review.</em></div>
   </div>
 
   <!-- Contact -->
@@ -455,6 +456,7 @@ function updatePrice(){
   if(state.reviewtype==='Both') lines.push(`<span>Both MEP + Building Enclosure:</span> ×2`);
   if(state.expedited==='Yes') lines.push(`<span>Expedited service:</span> +$${EXPEDITED_FEE}`);
   document.getElementById('breakdown').innerHTML=lines.join('<br>');
+  document.getElementById('fine-print').style.display='block';
 
   const allDone=Object.values(state).every(v=>v!==null);
   if(allDone) document.getElementById('contact-form').style.display='block';
